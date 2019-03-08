@@ -70,9 +70,10 @@ func ping(reg name.Registry, t http.RoundTripper) (*pingResp, error) {
 	// if the registry matches our localhost heuristic or if it is intentionally
 	// set to insecure via name.NewInsecureRegistry.
 	schemes := []string{"https"}
-	if reg.Scheme() == "http" {
-		schemes = append(schemes, "http")
-	}
+	fmt.Println("APEX: use https only")
+	//if reg.Scheme() == "http" {
+	//	schemes = append(schemes, "http")
+	//}
 
 	var connErr error
 	for _, scheme := range schemes {
